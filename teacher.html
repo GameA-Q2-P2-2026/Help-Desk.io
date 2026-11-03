@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help queue</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎟️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar"><span id="room"></span><span class="conn" id="conn">Connecting…</span></header>
+<div id="demo" class="demo" hidden>Demo mode: only tabs on this computer are connected. Open <a href="index.html" target="_blank">the student page</a> in another tab to send a test request.</div>
+
+<section id="gate" class="gate" hidden>
+  <h1>Teacher view</h1>
+  <form id="gate-form">
+    <label>PIN <input id="pin" type="password" inputmode="numeric" autocomplete="off"></label>
+    <button class="primary" type="submit">Open the queue</button>
+    <p class="err" id="gate-err" role="alert"></p>
+  </form>
+</section>
+
+<main id="app" class="teacher" hidden>
+  <div class="t-head">
+    <div>
+      <p class="count" id="count" aria-live="polite">No one waiting</p>
+      <p class="meta" id="sub"></p>
+    </div>
+    <div class="controls">
+      <button id="alerts" class="secondary sm needs" aria-pressed="false">Turn on sound and pop-ups</button>
+      <button id="open" class="secondary sm" aria-pressed="true">Accepting requests</button>
+      <button id="reset" class="secondary sm">Start new class</button>
+    </div>
+  </div>
+  <ol class="queue" id="queue"></ol>
+  <details class="finished">
+    <summary id="finished-sum">Finished (0)</summary>
+    <div class="fin-tools"><button id="clear" class="secondary sm">Clear finished</button></div>
+    <ol class="queue" id="finished"></ol>
+  </details>
+</main>
+<script type="module" src="teacher.js"></script>
+</body>
+</html>

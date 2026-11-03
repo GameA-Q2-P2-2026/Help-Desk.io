@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request help</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar"><span id="room"></span><span class="conn" id="conn">Connecting…</span></header>
+<div id="demo" class="demo" hidden>Demo mode: requests only reach other tabs on this computer. Open <a href="teacher.html" target="_blank">teacher.html</a> in another tab to try it. Add your Firebase settings to config.js to use it with students.</div>
+
+<main class="student">
+  <section id="v-form" hidden>
+    <h1>Stuck? Take a number.</h1>
+    <p class="lede">Type your name and send a request. Your teacher sees it right away.</p>
+    <form id="f" novalidate>
+      <label>Your name <input id="name" maxlength="40" autocomplete="given-name"></label>
+      <button class="primary" id="send" type="submit">Request help</button>
+      <p class="err" id="err" role="alert"></p>
+    </form>
+  </section>
+
+  <section id="v-closed" hidden>
+    <h1>Help requests are paused</h1>
+    <p class="lede">Your teacher has paused the help line for now. Raise your hand if it can’t wait.</p>
+  </section>
+
+  <section id="v-ticket" hidden aria-live="polite">
+    <div class="ticket big" id="ticket"><span class="t-label">Your number</span><span class="t-num" id="t-num"></span></div>
+    <h1 id="t-status"></h1>
+    <p class="lede" id="t-detail"></p>
+    <div class="actions">
+      <button id="cancel" class="secondary">I fixed it myself</button>
+      <button id="again" class="primary" hidden>Request help again</button>
+    </div>
+  </section>
+</main>
+<script type="module" src="student.js"></script>
+</body>
+</html>
