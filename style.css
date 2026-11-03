@@ -123,3 +123,6 @@ button { cursor: pointer; border-radius: 8px; font-weight: 700; }
   .stub .t-num { font-size: 2rem; }
   .side { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; text-align: left; }
 }
+
+.sent-mark { font-size: clamp(3.5rem, 12vw, 5rem); line-height: 1; margin: 0 0 1rem; }
+.foot { color: var(--muted); font-size: .85rem; margin-top: 3rem; }
